@@ -7,35 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chaus Code — Портфолио</title>
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/images/logo-2.svg" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
 
   <main>
 
-    <!--
-      - #SIDEBAR
-    -->
 
     <aside class="sidebar" data-sidebar>
 
@@ -98,7 +83,6 @@
 
           </li>
 
-
           <li class="contact-item">
 
             <div class="icon-box">
@@ -116,8 +100,6 @@
         </ul>
 
         <div class="separator"></div>
-
-
       </div>
 
     </aside>
@@ -126,15 +108,8 @@
 
 
 
-    <!--
-      - #main-content
-    -->
-
     <div class="main-content">
 
-      <!--
-        - #NAVBAR
-      -->
 
       <nav class="navbar">
 
@@ -161,9 +136,6 @@
 
 
 
-      <!--
-        - #ABOUT
-      -->
 
       <article class="about  active" data-page="about">
 
@@ -189,18 +161,28 @@
         </section>
 
 
-        <!--
-          - service
-        -->
-
         <section class="service">
 
           <h3 class="h3 service-title">Чем я занимаюсь</h3>
 
           <ul class="service-list">
 
+
             <li class="service-item">
 
+                <div class="service-icon-box">
+                  <img src="./assets/images/icon-dev.svg" alt="Веб-разработка icon" width="40">
+                </div>
+  
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">Веб разработка</h4>
+  
+                  <p class="service-item-text">
+                    Высококачественная разработка сайтов
+                  </p>
+                </div>
+
+              <li class="service-item">
               <div class="service-icon-box">
                 <img src="./assets/images/icon-design.svg
                 " alt="design icon" width="40">
@@ -213,24 +195,9 @@
                   Самый современный и высококачественный дизайн
                 </p>
               </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Веб-разработка icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Веб разработка</h4>
-
-                <p class="service-item-text">
-                  Высококачественная разработка сайтов
-                </p>
-              </div>
-
-            </li>
+  
+  
+              </li>
 
 
           </ul>
@@ -238,9 +205,6 @@
         </section>
 
 
-        <!--
-          - testimonials
-        -->
 
         <section class="testimonials">
 
@@ -403,11 +367,6 @@
 
         </section>
 
-
-        <!--
-          - testimonials modal
-        -->
-
         <div class="modal-container" data-modal-container>
 
           <div class="overlay" data-overlay></div>
@@ -455,10 +414,6 @@
 
 
 
-
-      <!--
-        - #RESUME
-      -->
 
       <article class="resume" data-page="resume">
 
@@ -580,7 +535,6 @@
               </div>
 
             </li>
-
 
             <li class="skills-item">
 
@@ -960,25 +914,6 @@
               </a>
             </li>
 
-
-            <li class="project-item  active" data-filter-item data-category="web development, web design">
-              <a href="https://uwwwaga.github.io/Mooniverse/" target="_blank" rel="noopener noreferrer">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/mooni.png" alt="MooniРейтинг" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MooniРейтинг</h3>
-
-                <p class="project-category">Web development · Web design</p>
-
-              </a>
-            </li>
-            
             <li class="project-item  active" data-filter-item data-category="web development, web design">
               <a href="https://uwwwaga.github.io/biznesgrib/" target="_blank" rel="noopener noreferrer">
 
@@ -1132,8 +1067,24 @@
 
               </a>
             </li>
+            <li class="project-item  active" data-filter-item data-category="web development, web design">
+              <a href="https://uwwwaga.github.io/Mooniverse/" target="_blank" rel="noopener noreferrer">
 
-                <li class="project-item  active" data-filter-item data-category="web development, web design">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/mooni.png" alt="MooniРейтинг" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">MooniРейтинг</h3>
+
+                <p class="project-category">Web development · Web design</p>
+
+              </a>
+            </li>
+            <li class="project-item  active" data-filter-item data-category="web development, web design">
               <a href="https://uwwwaga.github.io/Lumina-Coffee/" target="_blank" rel="noopener noreferrer">
 
                 <figure class="project-img">
@@ -1147,6 +1098,23 @@
                 <h3 class="project-title">Lumina Coffee</h3>
 
                 <p class="project-category">Web development · Web design</p>
+
+              </a>
+            </li>
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://lartums.ru" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/lartums.png" alt="Lumina-Coffee" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">lartums</h3>
+
+                <p class="project-category">Web development</p>
 
               </a>
             </li>
@@ -1170,6 +1138,7 @@
 
 
 
+
     </div>
 
   </main>
@@ -1179,14 +1148,8 @@
 
 
 
-  <!--
-    - custom js link
-  -->
   <script src="./assets/js/script.js"></script>
 
-  <!--
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
