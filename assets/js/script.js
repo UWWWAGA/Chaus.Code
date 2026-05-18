@@ -34,10 +34,65 @@ const testimonialsModalFunc = function () {
   overlay.classList.toggle("active");
 }
 
+// drag-to-scroll for testimonials list
+const testimonialsList = document.querySelector(".testimonials-list");
+
+let isDragging = false;
+let startX = 0;
+let startScrollLeft = 0;
+let dragDistance = 0;
+let lastX = 0;
+let velocity = 0;
+let rafId = null;
+
+testimonialsList.addEventListener("mousedown", function (e) {
+  isDragging = true;
+  dragDistance = 0;
+  velocity = 0;
+  startX = e.pageX - this.offsetLeft;
+  lastX = e.pageX;
+  startScrollLeft = this.scrollLeft;
+  this.style.cursor = "grabbing";
+  this.style.userSelect = "none";
+  this.style.scrollSnapType = "none";
+  cancelAnimationFrame(rafId);
+});
+
+document.addEventListener("mousemove", function (e) {
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX - testimonialsList.offsetLeft;
+  const walk = x - startX;
+  dragDistance = Math.abs(walk);
+  velocity = e.pageX - lastX;
+  lastX = e.pageX;
+  testimonialsList.scrollLeft = startScrollLeft - walk;
+});
+
+document.addEventListener("mouseup", function () {
+  if (!isDragging) return;
+  isDragging = false;
+  testimonialsList.style.cursor = "";
+  testimonialsList.style.userSelect = "";
+
+  const momentum = function () {
+    if (Math.abs(velocity) < 0.5) {
+      testimonialsList.style.scrollSnapType = "";
+      return;
+    }
+    testimonialsList.scrollLeft -= velocity;
+    velocity *= 0.92;
+    rafId = requestAnimationFrame(momentum);
+  };
+  rafId = requestAnimationFrame(momentum);
+});
+
 // add click event to all modal items
 for (let i = 0; i < testimonialsItem.length; i++) {
 
   testimonialsItem[i].addEventListener("click", function () {
+
+    if (dragDistance > 5) return;
 
     modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
     modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
