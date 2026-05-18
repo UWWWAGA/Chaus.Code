@@ -1,27 +1,6 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
-
-
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
 
 :root {
 
-  /**
-   * colors
-   */
-
-  /* gradient */
 
   --bg-gradient-onyx: linear-gradient(to bottom right,
       hsl(240, 1%, 25%) 3%,
@@ -30,17 +9,17 @@
       hsla(240, 1%, 18%, 0.251) 0%,
       hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
   --bg-gradient-yellow-1: linear-gradient(to bottom right,
-      hsl(45, 100%, 71%) 0%,
-      hsla(36, 100%, 69%, 0) 50%);
+      hsl(210, 100%, 62%) 0%,
+      hsla(190, 100%, 55%, 0) 50%);
   --bg-gradient-yellow-2: linear-gradient(135deg,
-      hsla(45, 100%, 71%, 0.251) 0%,
-      hsla(35, 100%, 68%, 0) 59.86%), hsl(240, 2%, 13%);
+      hsla(210, 100%, 62%, 0.251) 0%,
+      hsla(190, 100%, 55%, 0) 59.86%), hsl(240, 2%, 13%);
   --border-gradient-onyx: linear-gradient(to bottom right,
       hsl(0, 0%, 25%) 0%,
       hsla(0, 0%, 25%, 0) 50%);
   --text-gradient-yellow: linear-gradient(to right,
-      hsl(45, 100%, 72%),
-      hsl(35, 100%, 68%));
+      hsl(210, 100%, 65%),
+      hsl(186, 100%, 55%));
 
   /* solid */
 
@@ -51,8 +30,8 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
+  --orange-yellow-crayola: hsl(210, 100%, 65%);
+  --vegas-gold: hsl(210, 70%, 55%);
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
@@ -658,6 +637,12 @@ main {
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
+  cursor: grab;
+}
+
+.testimonials-list:active {
+  cursor: grabbing;
+  scroll-behavior: auto;
 }
 
 .testimonials-item {
@@ -2195,4 +2180,75 @@ textarea.form-input::-webkit-resizer {
     max-width: 700px;
   }
 
+}
+
+/*-----------------------------------*\
+  #HOVER EFFECTS
+\*-----------------------------------*/
+
+.service-item {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-3);
+}
+
+.content-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.content-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-3);
+}
+
+.contact-link {
+  transition: color var(--transition-1);
+}
+.contact-link:hover {
+  color: var(--orange-yellow-crayola);
+}
+
+.social-item .social-link {
+  transition: color var(--transition-1), transform var(--transition-1);
+}
+.social-item .social-link:hover {
+  color: var(--orange-yellow-crayola);
+  transform: translateY(-2px);
+}
+
+.project-img img {
+  transition: transform 0.3s ease;
+}
+.project-item > a:hover .project-img img {
+  transform: scale(1.04);
+}
+
+.skills-item {
+  transition: opacity 0.2s ease;
+}
+.skills-item:hover {
+  opacity: 0.8;
+}
+
+.modal-close-btn {
+  transition: background var(--transition-1), opacity var(--transition-1);
+}
+.modal-close-btn:hover {
+  background: var(--jet);
+  opacity: 1;
+}
+
+.blog-post-item > a {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.blog-post-item > a:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-3);
+}
+.blog-banner-box img {
+  transition: transform 0.35s ease;
+}
+.blog-post-item > a:hover .blog-banner-box img {
+  transform: scale(1.05);
 }
