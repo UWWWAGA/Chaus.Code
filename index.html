@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Константин — Frontend-разработчик и Web-дизайнер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<div class="page">
+
+<header>
+  <div class="nav-pill">
+    <div class="nav-logo">Chaus.Code</div>
+    <nav class="nav-links">
+      <a href="#about">Обо мне</a>
+      <a href="#skills">Навыки</a>
+      <a href="#timeline">Резюме</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#portfolio">Портфолио</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Связаться</a>
+    <button type="button" class="nav-burger" id="navBurger" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">Обо мне</a>
+  <a href="#skills">Навыки</a>
+  <a href="#timeline">Резюме</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#portfolio">Портфолио</a>
+  <a href="#contact" class="nav-cta mobile-cta">Связаться</a>
+</div>
+
+<section class="hero">
+  <div class="blob-field">
+    <div class="blob solid b3"></div>
+    <div class="blob solid b4"></div>
+    <div class="blob-glow b1"></div>
+    <div class="blob-glow b2"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge reveal in">
+        <span>Открыт к проектам · Фриланс &amp; Kwork</span>
+      </div>
+
+      <h1 class="reveal in">Константин</h1>
+      <div class="hero-role reveal in">Frontend-разработчик · Web-дизайнер</div>
+
+      <p class="lede reveal in">Превращаю сложные задачи в элегантные интерфейсы. Верстаю быстро, проектирую с заботой о пользователе и довожу каждый пиксель до чистового вида.</p>
+
+      <div class="hero-ctas reveal in">
+        <a href="#portfolio" class="btn-primary">Смотреть портфолио</a>
+        <button type="button" class="btn-ghost" id="openContactModal">Показать контакты</button>
+      </div>
+
+      <div class="hero-meta reveal in">
+        <span class="hero-meta-item"><span class="dot"></span> Россия</span>
+        <span class="hero-meta-divider"></span>
+        <span class="hero-meta-item"> <a href="https://t.me/buwaga" target="_blank" rel="noopener noreferrer">Telegram · @buwaga</a></span>
+        <span class="hero-meta-divider"></span>
+        <span class="hero-meta-item"> <a href="https://kwork.ru/user/buwaga" target="_blank" rel="noopener noreferrer">Kwork · Buwaga</a></span>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal in">
+      <div class="hero-photo-wrap">
+        <div class="hero-float-pill p1">HTML · CSS · JS</div>
+        <div class="hero-float-pill p2">UI / UX</div>
+        <div class="hero-float-pill p3">WordPress · Tilda</div>
+        <div class="hero-photo-card">
+          <img src="https://uwwwaga.github.io/Chaus.Code/assets/images/buwaga.png" alt="Константин — Frontend-разработчик">
+          <div class="hero-float-badge">
+            <div class="hero-float-status"></div>
+            <div>
+              <strong>Готов к новым задачам</strong>
+              <span>Отвечаю обычно в течение часа</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-intro reveal">
+      <span class="eyebrow">Обо мне</span>
+      <h2 style="margin:16px 0 0; font-size:clamp(28px,4vw,44px);">Код — это забота о пользовательском опыте</h2>
+      <p>Привет! Я фронтенд-разработчик и веб-дизайнер. Моя главная цель — превращать сложные задачи клиентов в удобные, быстрые и визуально привлекательные интерфейсы.</p>
+      <p>Я забочусь о том, чтобы каждый сайт был не просто красиво сверстан, но и выполнял свою бизнес-задачу: легко читался, быстро загружался и давал максимальную конверсию.</p>
+    </div>
+
+    <div class="service-cards">
+      <div class="service-card-wrapper reveal">
+        <div class="service-card">
+          <div class="service-icon">&lt;/&gt;</div>
+          <div>
+            <h4>Веб-разработка</h4>
+            <p>Чистая адаптивная вёрстка, JavaScript и full-stack решения под ключ.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card-wrapper reveal">
+        <div class="service-card">
+          <div class="service-icon">✺</div>
+          <div>
+            <h4>Веб-дизайн</h4>
+            <p>Современные UI/UX-концепты с продуманной логикой и визуальной иерархией.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card-wrapper reveal">
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <div>
+            <h4>Скорость и качество</h4>
+            <p>Быстрая сдача, внимание к деталям и понятная коммуникация на каждом этапе.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Навыки</span>
+      <h2>Инструменты, с которыми я работаю каждый день</h2>
+    </div>
+    <div class="skills-grid" id="skillsGrid">
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Резюме</span>
+      <h2>Путь от первой вёрстки до фриланса</h2>
+    </div>
+    <div class="timeline-cols">
+      <div class="timeline-col reveal">
+        <h3>Обучение</h3>
+        <div class="t-item">
+          <div class="t-year">2023</div>
+          <h4>Знакомство с разработкой</h4>
+          <p>Изучал основы вёрстки и JavaScript, создавал первые проекты. Освоил HTML5, CSS3 и базовый JavaScript. Выполнил 5 учебных проектов.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-year">2024</div>
+          <h4>Углубление знаний</h4>
+          <p>Изучил продвинутые техники вёрстки, освоил современные инструменты разработки. Работал над 12 реальными проектами.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-year">2025</div>
+          <h4>Профессиональный рост</h4>
+          <p>Создаю проекты с нуля на фрилансе: дизайн, вёрстка, full-stack разработка. Работаю над коммерческими задачами.</p>
+        </div>
+      </div>
+      <div class="timeline-col reveal">
+        <h3>Опыт</h3>
+        <div class="t-item">
+          <div class="t-year">2024 — 2026</div>
+          <h4>Веб-разработчик</h4>
+          <p>Занимаюсь веб-разработкой на бирже Kwork, а также напрямую с клиентами.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-year">2025 — 2026</div>
+          <h4>Веб-дизайнер</h4>
+          <p>Помимо программирования, начал создавать различные дизайны сайтов.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Отзывы</span>
+      <h2>Что говорят клиенты</h2>
+    </div>
+    <div class="reviews-slider reveal">
+      <div class="reviews-track" id="reviewsTrack"></div>
+    </div>
+    <div class="reviews-controls">
+      <div class="rev-arrow" id="revPrev">←</div>
+      <div class="reviews-dots" id="reviewsDots"></div>
+      <div class="rev-arrow" id="revNext">→</div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Портфолио</span>
+      <h2>Избранные проекты</h2>
+    </div>
+    <div class="folio-filter" id="folioFilter">
+      <button class="active" data-filter="all">Все</button>
+      <button data-filter="design">Веб дизайн</button>
+      <button data-filter="dev">Веб разработка</button>
+    </div>
+    <div class="folio-grid" id="folioGrid"></div>
+    <div class="folio-more-wrap" id="folioMoreWrap">
+      <button type="button" class="btn-ghost" id="folioMoreBtn">Показать ещё</button>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="blob-field">
+    <div class="blob-glow c1"></div>
+    <div class="blob-glow c2"></div>
+  </div>
+  <div class="wrap contact-inner reveal">
+    <h2>Готов обсудить ваш проект</h2>
+    <p class="contact-lede">Пишите в Telegram или на Kwork — расскажите о задаче, и я предложу решение и сроки.</p>
+
+    <div class="contact-cards">
+      <a href="https://t.me/buwaga" target="_blank" class="contact-card">
+        <div class="contact-card-icon"><svg viewBox="0 0 240 240" width="19" height="19" fill="currentColor"><path d="M226.5 34.5 3.5 122c-9 3.7-8.9 8.9-1.6 11.2l55.3 17.3 128.4-81c6-3.9 11.5-1.8 7 2.5L94 165.6l-4 45.9c5.6 0 8-2.6 11-5.6l26.4-25.5 55 40.6c10.1 5.6 17.4 2.7 19.9-9.4L240 45.6c3.5-14.8-5.6-21.5-21.9-11.1z"/></svg></div>
+        <div class="contact-card-body"><span>Telegram</span><strong>@buwaga</strong></div>
+        <div class="contact-card-arrow">→</div>
+      </a>
+      <a href="https://kwork.ru/user/buwaga" target="_blank" class="contact-card">
+        <div class="contact-card-icon">K</div>
+        <div class="contact-card-body"><span>Kwork</span><strong>Buwaga</strong></div>
+        <div class="contact-card-arrow">→</div>
+      </a>
+      <div class="contact-card">
+        <div class="contact-card-icon">📍</div>
+        <div class="contact-card-body"><span>Гео</span><strong>Россия</strong></div>
+      </div>
+    </div>
+
+    <div class="contact-status">
+      <span class="eyebrow"></span> Открыт к новым проектам
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Chaus.Code</span>
+    <a href="#about">Наверх ↑</a>
+  </div>
+</footer>
+
+</div>
+
+<div class="modal-overlay" id="contactModalOverlay">
+  <div class="contact-modal">
+    <div class="blob-glow m1"></div>
+    <div class="blob-glow m2"></div>
+    <div class="modal-close" id="closeContactModal">✕</div>
+    <div class="contact-modal-inner">
+      <span class="eyebrow">Контакты</span>
+      <h3 style="margin-top:14px;">Как со мной связаться</h3>
+      <p class="modal-sub">Отвечаю быстро — обычно в течение часа в рабочее время (МСК).</p>
+      <div class="modal-contact-list">
+        <a href="https://t.me/buwaga" target="_blank" class="modal-contact-item">
+          <div class="modal-contact-icon"><svg viewBox="0 0 240 240" width="18" height="18" fill="currentColor"><path d="M226.5 34.5 3.5 122c-9 3.7-8.9 8.9-1.6 11.2l55.3 17.3 128.4-81c6-3.9 11.5-1.8 7 2.5L94 165.6l-4 45.9c5.6 0 8-2.6 11-5.6l26.4-25.5 55 40.6c10.1 5.6 17.4 2.7 19.9-9.4L240 45.6c3.5-14.8-5.6-21.5-21.9-11.1z"/></svg></div>
+          <div class="modal-contact-text"><strong>Telegram</strong><span>@buwaga</span></div>
+          <div class="modal-contact-arrow">→</div>
+        </a>
+        <a href="https://kwork.ru/user/buwaga" target="_blank" class="modal-contact-item">
+          <div class="modal-contact-icon">K</div>
+          <div class="modal-contact-text"><strong>Kwork</strong><span>Buwaga</span></div>
+          <div class="modal-contact-arrow">→</div>
+        </a>
+        <div class="modal-contact-item">
+          <div class="modal-contact-icon">📍</div>
+          <div class="modal-contact-text"><strong>Гео</strong><span>Россия</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
