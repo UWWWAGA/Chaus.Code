@@ -191,6 +191,7 @@ const folio = [
   { name: "Aura", cat: "dev,design", img: "aura-converted.webp", link: "https://uwwwaga.github.io/Aura/" },
   { name: "PhotographerKazan", cat: "dev,design", img: "photographerkazan-converted.webp", link: "https://uwwwaga.github.io/PhotographerKazan/" },
   { name: "Dimension", cat: "dev,design", img: "dimension-converted.webp", link: "https://uwwwaga.github.io/Dimension/" },
+  { name: "Hyperspace", cat: "dev,design", img: "hyperspace-converted.webp", link: "https://uwwwaga.github.io/Hyperspace/" },
 ];
 const catLabel = c => c.includes(',') ? 'Разработка · Дизайн' : (c === 'dev' ? 'Веб разработка' : 'Веб дизайн');
 const folioGrid = document.getElementById('folioGrid');
