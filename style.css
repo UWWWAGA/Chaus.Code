@@ -981,8 +981,17 @@ section {
   display: flex;
   flex-direction: column;
   gap: 14px;
-
   justify-content: space-between;
+}
+
+.review-card p a {
+  color: var(--blue-400);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.review-card p a:hover {
+  opacity: 0.7;
 }
 
 .reviews-controls {
