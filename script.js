@@ -1,3 +1,23 @@
+const themeToggle = document.getElementById('themeToggle');
+const storedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (storedTheme) {
+  document.documentElement.setAttribute('data-theme', storedTheme);
+} else if (prefersDark) {
+  document.documentElement.setAttribute('data-theme', 'dark');
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+}
+
 const IMG = "./images/";
 
 const skills = [
@@ -6,14 +26,16 @@ const skills = [
   ["WordPress", 95], ["Tilda", 100], ["1C-Bitrix", 50]
 ];
 const skillsGrid = document.getElementById('skillsGrid');
-skills.forEach(([name, val]) => {
-  const el = document.createElement('div');
-  el.className = 'skill-card reveal';
-  el.innerHTML = `
-      <div class="skill-top"><span>${name}</span><span>${val}%</span></div>
-      <div class="skill-bar"><i style="width:0%" data-target="${val}"></i></div>`;
-  skillsGrid.appendChild(el);
-});
+if (skillsGrid) {
+  skills.forEach(([name, val]) => {
+    const el = document.createElement('div');
+    el.className = 'skill-card reveal';
+    el.innerHTML = `
+        <div class="skill-top"><span>${name}</span><span>${val}%</span></div>
+        <div class="skill-bar"><i style="width:0%" data-target="${val}"></i></div>`;
+    skillsGrid.appendChild(el);
+  });
+}
 
 const reviews = [
   ["Mobilkom", "avatar-1-converted.webp", "Быстро и качественно выполнена работа! Внимательный и понимающий задачи человек! Огромное спасибо! Рекомендую людям, которые хотят заказать себе качественный сайт!"],
@@ -29,140 +51,146 @@ const reviewsTrack = document.getElementById('reviewsTrack');
 const reviewsDots = document.getElementById('reviewsDots');
 
 function cardStep() {
+  if (!reviewsTrack) return 360;
   const card = reviewsTrack.querySelector('.review-card');
   if (!card) return 360;
   const style = getComputedStyle(reviewsTrack);
   return card.offsetWidth + parseFloat(style.gap || 18);
 }
 
-reviews.forEach(([name, avatar, text], i) => {
-  const el = document.createElement('div');
-  el.className = 'review-card reveal in';
-  el.dataset.index = i;
-  el.innerHTML = `
-      <div class="stars">★★★★★</div>
-      <p>«${text}»</p>
-      <div class="review-top">
-        <img src="${IMG}${avatar}" alt="${name}" loading="lazy" decoding="async">
-        <strong>${name}</strong>
-      </div>`;
-  reviewsTrack.appendChild(el);
+if (reviewsTrack && reviewsDots) {
+  reviews.forEach(([name, avatar, text], i) => {
+    const el = document.createElement('div');
+    el.className = 'review-card reveal in';
+    el.dataset.index = i;
+    el.innerHTML = `
+        <div class="stars">★★★★★</div>
+        <p>«${text}»</p>
+        <div class="review-top">
+          <img src="${IMG}${avatar}" alt="${name}" loading="lazy" decoding="async">
+          <strong>${name}</strong>
+        </div>`;
+    reviewsTrack.appendChild(el);
 
-  const dot = document.createElement('div');
-  dot.className = 'rdot' + (i === 0 ? ' active' : '');
-  dot.addEventListener('click', () => {
-    const targetCard = [...reviewsTrack.children].find(c => parseInt(c.dataset.index) === i);
-    if (targetCard) {
-      reviewsTrack.scrollTo({ left: targetCard.offsetLeft - reviewsTrack.offsetLeft, behavior: 'smooth' });
-    }
+    const dot = document.createElement('div');
+    dot.className = 'rdot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => {
+      const targetCard = [...reviewsTrack.children].find(c => parseInt(c.dataset.index) === i);
+      if (targetCard) {
+        reviewsTrack.scrollTo({ left: targetCard.offsetLeft - reviewsTrack.offsetLeft, behavior: 'smooth' });
+      }
+    });
+    reviewsDots.appendChild(dot);
   });
-  reviewsDots.appendChild(dot);
-});
 
-const origCards = [...reviewsTrack.children];
-origCards.forEach(c => reviewsTrack.appendChild(c.cloneNode(true)));
-[...origCards].reverse().forEach(c => reviewsTrack.insertBefore(c.cloneNode(true), reviewsTrack.firstChild));
+  const origCards = [...reviewsTrack.children];
+  origCards.forEach(c => reviewsTrack.appendChild(c.cloneNode(true)));
+  [...origCards].reverse().forEach(c => reviewsTrack.insertBefore(c.cloneNode(true), reviewsTrack.firstChild));
 
-const total = reviews.length;
-setTimeout(() => {
-  reviewsTrack.scrollLeft = total * cardStep();
-}, 50);
+  const total = reviews.length;
+  setTimeout(() => {
+    reviewsTrack.scrollLeft = total * cardStep();
+  }, 50);
 
-let isAdjusting = false;
-reviewsTrack.addEventListener('scroll', () => {
-  if (isAdjusting) return;
-  const step = cardStep();
-  const setWidth = total * step;
+  let isAdjusting = false;
+  reviewsTrack.addEventListener('scroll', () => {
+    if (isAdjusting) return;
+    const step = cardStep();
+    const setWidth = total * step;
 
-  if (reviewsTrack.scrollLeft <= step * 0.5) {
-    isAdjusting = true;
-    reviewsTrack.style.scrollBehavior = 'auto';
-    reviewsTrack.scrollLeft += setWidth;
-    reviewsTrack.style.scrollBehavior = '';
-    isAdjusting = false;
+    if (reviewsTrack.scrollLeft <= step * 0.5) {
+      isAdjusting = true;
+      reviewsTrack.style.scrollBehavior = 'auto';
+      reviewsTrack.scrollLeft += setWidth;
+      reviewsTrack.style.scrollBehavior = '';
+      isAdjusting = false;
+    }
+    else if (reviewsTrack.scrollLeft >= setWidth * 2 - step * 0.5) {
+      isAdjusting = true;
+      reviewsTrack.style.scrollBehavior = 'auto';
+      reviewsTrack.scrollLeft -= setWidth;
+      reviewsTrack.style.scrollBehavior = '';
+      isAdjusting = false;
+    }
+
+    const rawIndex = Math.round(reviewsTrack.scrollLeft / step);
+    const realIndex = ((rawIndex % total) + total) % total;
+    [...reviewsDots.children].forEach((d, i) => d.classList.toggle('active', i === realIndex));
+  });
+
+  const revNext = document.getElementById('revNext');
+  const revPrev = document.getElementById('revPrev');
+
+  if (revNext) {
+    revNext.addEventListener('click', () => {
+      pauseAutoplay();
+      reviewsTrack.scrollBy({ left: cardStep(), behavior: 'smooth' });
+      resumeAutoplay();
+    });
   }
-  else if (reviewsTrack.scrollLeft >= setWidth * 2 - step * 0.5) {
-    isAdjusting = true;
-    reviewsTrack.style.scrollBehavior = 'auto';
-    reviewsTrack.scrollLeft -= setWidth;
-    reviewsTrack.style.scrollBehavior = '';
-    isAdjusting = false;
+
+  if (revPrev) {
+    revPrev.addEventListener('click', () => {
+      pauseAutoplay();
+      reviewsTrack.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+      resumeAutoplay();
+    });
   }
 
-  const rawIndex = Math.round(reviewsTrack.scrollLeft / step);
-  const realIndex = ((rawIndex % total) + total) % total;
-  [...reviewsDots.children].forEach((d, i) => d.classList.toggle('active', i === realIndex));
-});
+  let isDragging = false, dragStartX = 0, dragStartScroll = 0, dragMoved = false;
+  reviewsTrack.addEventListener('mousedown', (e) => {
+    isDragging = true; dragMoved = false;
+    reviewsTrack.classList.add('dragging');
+    dragStartX = e.pageX;
+    dragStartScroll = reviewsTrack.scrollLeft;
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const delta = e.pageX - dragStartX;
+    if (Math.abs(delta) > 4) dragMoved = true;
+    reviewsTrack.scrollLeft = dragStartScroll - delta;
+  });
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    reviewsTrack.classList.remove('dragging');
+  });
+  reviewsTrack.addEventListener('click', (e) => { if (dragMoved) e.preventDefault(); }, true);
 
-document.getElementById('revNext').addEventListener('click', () => {
-  reviewsTrack.scrollBy({ left: cardStep(), behavior: 'smooth' });
-});
-document.getElementById('revPrev').addEventListener('click', () => {
-  reviewsTrack.scrollBy({ left: -cardStep(), behavior: 'smooth' });
-});
+  const AUTOPLAY_MS = 4000;
+  let autoplayTimer = null;
 
-let isDragging = false, dragStartX = 0, dragStartScroll = 0, dragMoved = false;
-reviewsTrack.addEventListener('mousedown', (e) => {
-  isDragging = true; dragMoved = false;
-  reviewsTrack.classList.add('dragging');
-  dragStartX = e.pageX;
-  dragStartScroll = reviewsTrack.scrollLeft;
-});
-window.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
-  const delta = e.pageX - dragStartX;
-  if (Math.abs(delta) > 4) dragMoved = true;
-  reviewsTrack.scrollLeft = dragStartScroll - delta;
-});
-window.addEventListener('mouseup', () => {
-  if (!isDragging) return;
-  isDragging = false;
-  reviewsTrack.classList.remove('dragging');
-});
-reviewsTrack.addEventListener('click', (e) => { if (dragMoved) e.preventDefault(); }, true);
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(() => {
+      reviewsTrack.scrollBy({ left: cardStep(), behavior: 'smooth' });
+    }, AUTOPLAY_MS);
+  }
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+  function pauseAutoplay() { stopAutoplay(); }
+  function resumeAutoplay() { startAutoplay(); }
 
-const AUTOPLAY_MS = 4000;
-let autoplayTimer = null;
+  const reviewsSlider = document.querySelector('.reviews-slider');
+  if (reviewsSlider) {
+    reviewsSlider.addEventListener('mouseenter', pauseAutoplay);
+    reviewsSlider.addEventListener('mouseleave', resumeAutoplay);
+  }
+  reviewsTrack.addEventListener('touchstart', pauseAutoplay, { passive: true });
+  reviewsTrack.addEventListener('touchend', resumeAutoplay, { passive: true });
 
-function startAutoplay() {
-  stopAutoplay();
-  autoplayTimer = setInterval(() => {
-    reviewsTrack.scrollBy({ left: cardStep(), behavior: 'smooth' });
-  }, AUTOPLAY_MS);
+  reviewsDots.addEventListener('click', () => {
+    pauseAutoplay();
+    resumeAutoplay();
+  });
+
+  startAutoplay();
 }
-function stopAutoplay() {
-  if (autoplayTimer) {
-    clearInterval(autoplayTimer);
-    autoplayTimer = null;
-  }
-}
-function pauseAutoplay() { stopAutoplay(); }
-function resumeAutoplay() { startAutoplay(); }
-
-const reviewsSlider = document.querySelector('.reviews-slider');
-reviewsSlider.addEventListener('mouseenter', pauseAutoplay);
-reviewsSlider.addEventListener('mouseleave', resumeAutoplay);
-reviewsTrack.addEventListener('touchstart', pauseAutoplay, { passive: true });
-reviewsTrack.addEventListener('touchend', resumeAutoplay, { passive: true });
-
-reviewsDots.addEventListener('click', () => {
-  pauseAutoplay();
-  resumeAutoplay();
-});
-
-startAutoplay();
-
-document.getElementById('revNext').addEventListener('click', () => {
-  pauseAutoplay();
-  reviewsTrack.scrollBy({ left: cardStep(), behavior: 'smooth' });
-  resumeAutoplay();
-});
-document.getElementById('revPrev').addEventListener('click', () => {
-  pauseAutoplay();
-  reviewsTrack.scrollBy({ left: -cardStep(), behavior: 'smooth' });
-  resumeAutoplay();
-});
 
 const folio = [
   { name: "Project 1", cat: "dev", img: "project-1(1)-converted.webp" },
@@ -186,13 +214,14 @@ const folio = [
   { name: "MooniРейтинг", cat: "dev,design", img: "mooni-converted.webp", link: "https://uwwwaga.github.io/Mooniverse/" },
   { name: "Lumina Coffee", cat: "dev,design", img: "Lumina-Coffee-converted.webp", link: "https://uwwwaga.github.io/Lumina-Coffee/" },
   { name: "Lartums", cat: "dev", img: "lartums-converted.webp", link: "https://lartums.ru" },
-  { name: "Lapki Vet", cat: "design", img: "Lapki Vet-converted.webp", link: "https://www.figma.com/proto/umoDlZSFRgFoJlgvMY8soI/LapkiVetPres?node-id=1-2&viewport=557%2C40%2C0.19&t=O2nXrnT5jRXu5h0z-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" },
+  { name: "Lapki Vet", cat: "design", img: "Lapki Vet-converted.webp", link: "https://www.figma.com/proto/MWz2rb2hVxLJxRGO2J552N/Lapki" },
   { name: "ParmaSystems", cat: "dev,design", img: "parmasystems-converted.webp", link: "https://uwwwaga.github.io/ParmaSystems/" },
   { name: "Aura", cat: "dev,design", img: "aura-converted.webp", link: "https://uwwwaga.github.io/Aura/" },
   { name: "PhotographerKazan", cat: "dev,design", img: "photographerkazan-converted.webp", link: "https://uwwwaga.github.io/PhotographerKazan/" },
   { name: "Dimension", cat: "dev,design", img: "dimension-converted.webp", link: "https://uwwwaga.github.io/Dimension/" },
   { name: "Hyperspace", cat: "dev,design", img: "hyperspace-converted.webp", link: "https://uwwwaga.github.io/Hyperspace/" },
 ];
+
 const catLabel = c => c.includes(',') ? 'Разработка · Дизайн' : (c === 'dev' ? 'Веб разработка' : 'Веб дизайн');
 const folioGrid = document.getElementById('folioGrid');
 const folioMoreWrap = document.getElementById('folioMoreWrap');
@@ -204,6 +233,7 @@ let folioVisible = FOLIO_INITIAL;
 let folioCurrentFilter = 'all';
 
 function renderFolio(filter) {
+  if (!folioGrid) return;
   folioGrid.innerHTML = '';
   const filtered = folio.filter(p => filter === 'all' || p.cat.includes(filter));
   filtered.slice(0, folioVisible).forEach(p => {
@@ -220,23 +250,31 @@ function renderFolio(filter) {
     }
     folioGrid.appendChild(el);
   });
-  folioMoreWrap.classList.toggle('hidden', folioVisible >= filtered.length);
+  if (folioMoreWrap) {
+    folioMoreWrap.classList.toggle('hidden', folioVisible >= filtered.length);
+  }
 }
+
 renderFolio(folioCurrentFilter);
 
-folioMoreBtn.addEventListener('click', () => {
-  folioVisible += FOLIO_STEP;
-  renderFolio(folioCurrentFilter);
-});
+if (folioMoreBtn) {
+  folioMoreBtn.addEventListener('click', () => {
+    folioVisible += FOLIO_STEP;
+    renderFolio(folioCurrentFilter);
+  });
+}
 
-document.getElementById('folioFilter').addEventListener('click', e => {
-  if (e.target.tagName !== 'BUTTON') return;
-  document.querySelectorAll('#folioFilter button').forEach(b => b.classList.remove('active'));
-  e.target.classList.add('active');
-  folioCurrentFilter = e.target.dataset.filter;
-  folioVisible = FOLIO_INITIAL;
-  renderFolio(folioCurrentFilter);
-});
+const folioFilter = document.getElementById('folioFilter');
+if (folioFilter) {
+  folioFilter.addEventListener('click', e => {
+    if (e.target.tagName !== 'BUTTON') return;
+    document.querySelectorAll('#folioFilter button').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    folioCurrentFilter = e.target.dataset.filter;
+    folioVisible = FOLIO_INITIAL;
+    renderFolio(folioCurrentFilter);
+  });
+}
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -244,12 +282,13 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.classList.add('in');
       if (entry.target.classList.contains('skill-card')) {
         const bar = entry.target.querySelector('.skill-bar i');
-        bar.style.width = bar.dataset.target + '%';
+        if (bar) bar.style.width = bar.dataset.target + '%';
       }
       observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.15 });
+
 document.querySelectorAll('.reveal:not(.in)').forEach(el => observer.observe(el));
 
 setTimeout(() => {
@@ -263,6 +302,7 @@ const closeContactBtn = document.getElementById('closeContactModal');
 let scrollY = 0;
 
 function openContactModal() {
+  if (!contactOverlay) return;
   scrollY = window.scrollY || window.pageYOffset;
   contactOverlay.classList.add('active');
   document.documentElement.style.overflow = 'hidden';
@@ -273,7 +313,9 @@ function openContactModal() {
   document.body.style.right = '0';
   document.body.style.width = '100%';
 }
+
 function closeContactModal() {
+  if (!contactOverlay) return;
   contactOverlay.classList.remove('active');
   document.documentElement.style.overflow = '';
   document.body.style.overflow = '';
@@ -284,32 +326,48 @@ function closeContactModal() {
   document.body.style.width = '';
   window.scrollTo(0, scrollY);
 }
-openContactBtn.addEventListener('click', openContactModal);
-closeContactBtn.addEventListener('click', closeContactModal);
-contactOverlay.addEventListener('click', (e) => {
-  if (e.target === contactOverlay) closeContactModal();
-});
+
+if (openContactBtn) openContactBtn.addEventListener('click', openContactModal);
+if (closeContactBtn) closeContactBtn.addEventListener('click', closeContactModal);
+if (contactOverlay) {
+  contactOverlay.addEventListener('click', (e) => {
+    if (e.target === contactOverlay) closeContactModal();
+  });
+}
+
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && contactOverlay.classList.contains('active')) closeContactModal();
+  if (e.key === 'Escape' && contactOverlay && contactOverlay.classList.contains('active')) {
+    closeContactModal();
+  }
 });
 
 const navBurger = document.getElementById('navBurger');
 const mobileMenu = document.getElementById('mobileMenu');
 
 function toggleMobileMenu() {
-  navBurger.classList.toggle('active');
-  mobileMenu.classList.toggle('active');
+  if (navBurger && mobileMenu) {
+    navBurger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  }
 }
+
 function closeMobileMenu() {
-  navBurger.classList.remove('active');
-  mobileMenu.classList.remove('active');
+  if (navBurger && mobileMenu) {
+    navBurger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+  }
 }
-navBurger.addEventListener('click', toggleMobileMenu);
-mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+
+if (navBurger) navBurger.addEventListener('click', toggleMobileMenu);
+if (mobileMenu) {
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+}
+
 document.addEventListener('click', (e) => {
-  if (mobileMenu.classList.contains('active') &&
-    !mobileMenu.contains(e.target) && !navBurger.contains(e.target)) {
+  if (mobileMenu && mobileMenu.classList.contains('active') &&
+    !mobileMenu.contains(e.target) && navBurger && !navBurger.contains(e.target)) {
     closeMobileMenu();
   }
 });
+
 window.addEventListener('resize', () => { if (window.innerWidth > 980) closeMobileMenu(); });
