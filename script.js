@@ -186,7 +186,7 @@ const folio = [
   { name: "MooniРейтинг", cat: "dev,design", img: "mooni-converted.webp", link: "https://uwwwaga.github.io/Mooniverse/" },
   { name: "Lumina Coffee", cat: "dev,design", img: "Lumina-Coffee-converted.webp", link: "https://uwwwaga.github.io/Lumina-Coffee/" },
   { name: "Lartums", cat: "dev", img: "lartums-converted.webp", link: "https://lartums.ru" },
-  { name: "Lapki Vet", cat: "design", img: "Lapki Vet-converted.webp", link: "https://www.figma.com/proto/MWz2rb2hVxLJxRGO2J552N/Lapki" },
+  { name: "Lapki Vet", cat: "design", img: "Lapki Vet-converted.webp", link: "https://www.figma.com/proto/umoDlZSFRgFoJlgvMY8soI/LapkiVetPres?node-id=1-2&viewport=557%2C40%2C0.19&t=O2nXrnT5jRXu5h0z-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" },
   { name: "ParmaSystems", cat: "dev,design", img: "parmasystems-converted.webp", link: "https://uwwwaga.github.io/ParmaSystems/" },
   { name: "Aura", cat: "dev,design", img: "aura-converted.webp", link: "https://uwwwaga.github.io/Aura/" },
   { name: "PhotographerKazan", cat: "dev,design", img: "photographerkazan-converted.webp", link: "https://uwwwaga.github.io/PhotographerKazan/" },
