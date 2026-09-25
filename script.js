@@ -16,12 +16,12 @@ skills.forEach(([name, val]) => {
 });
 
 const reviews = [
-  ["Mobilkom", "avatar-1.png", "Быстро и качественно выполнена работа! Внимательный и понимающий задачи человек! Огромное спасибо! Рекомендую людям, которые хотят заказать себе качественный сайт!"],
-  ["diefrompain1993", "avatar-4.png", "Рекомендую данного исполнителя! Всё было выполнено в соответствии с требованиями, также предлагалось своё видение того, как всё должно выглядеть — 10 из 10."],
-  ["VK17", "avatar-1.png", "Отличная работа, 100% доволен результатом. Быстро и чётко реагирует на все пожелания, работает точно по ТЗ. Терпелив и приятен в общении."],
-  ["Sasha Ieriemina", "avatar-3.png", "Обратилась за сайтом с нуля и не пожалела ни секунды. Отвечал на все вопросы и объяснял максимально подробно. Осталась в восторге, рекомендую на 100%."],
-  ["Юлия", "avatar-2.png", "Получила готовый сайт за 2 дня, Константин объяснил устройство админки и ответил на все вопросы. Однозначно рекомендую, буду обращаться ещё!"],
-  ["getlucky2021", "avatar-3.png", "Перевели оперативно 2 сайта на новые языки за несколько часов. Всё чётко, все пожелания учтены."]
+  ["Mobilkom", "avatar-1-converted.webp", "Быстро и качественно выполнена работа! Внимательный и понимающий задачи человек! Огромное спасибо! Рекомендую людям, которые хотят заказать себе качественный сайт!"],
+  ["diefrompain1993", "avatar-4-converted.webp", "Рекомендую данного исполнителя! Всё было выполнено в соответствии с требованиями, также предлагалось своё видение того, как всё должно выглядеть — 10 из 10."],
+  ["VK17", "avatar-1-converted.webp", "Отличная работа, 100% доволен результатом. Быстро и чётко реагирует на все пожелания, работает точно по ТЗ. Терпелив и приятен в общении."],
+  ["Sasha Ieriemina", "avatar-3-converted.webp", "Обратилась за сайтом с нуля и не пожалела ни секунды. Отвечал на все вопросы и объяснял максимально подробно. Осталась в восторге, рекомендую на 100%."],
+  ["Юлия", "avatar-2-converted.webp", "Получила готовый сайт за 2 дня, Константин объяснил устройство админки и ответил на все вопросы. Однозначно рекомендую, буду обращаться ещё!"],
+  ["getlucky2021", "avatar-3-converted.webp", "Перевели оперативно 2 сайта на новые языки за несколько часов. Всё чётко, все пожелания учтены."]
 ];
 
 const reviewsTrack = document.getElementById('reviewsTrack');
@@ -42,7 +42,7 @@ reviews.forEach(([name, avatar, text], i) => {
       <div class="stars">★★★★★</div>
       <p>«${text}»</p>
       <div class="review-top">
-        <img src="${IMG}${avatar}" alt="${name}">
+        <img src="${IMG}${avatar}" alt="${name}" loading="lazy" decoding="async">
         <strong>${name}</strong>
       </div>`;
   reviewsTrack.appendChild(el);
@@ -164,31 +164,31 @@ document.getElementById('revPrev').addEventListener('click', () => {
 });
 
 const folio = [
-  { name: "Project 1", cat: "dev", img: "project-1(1).png" },
-  { name: "Project 2", cat: "dev", img: "project-2(1).png" },
-  { name: "Project 3", cat: "design", img: "project-3(1).png" },
-  { name: "Project 4", cat: "design", img: "project-4(1).png" },
-  { name: "Project 5", cat: "dev", img: "project-5(1).png" },
-  { name: "Metaspark", cat: "dev", img: "project-6(1).png" },
-  { name: "Project 7", cat: "design", img: "project-7(1).png" },
-  { name: "Project 8", cat: "dev", img: "project-8(1).png" },
-  { name: "Project 9", cat: "design", img: "project-9(1).png" },
-  { name: "Iterumsi", cat: "dev,design", img: "iterum.png"},
-  { name: "Shusha", cat: "dev,design", img: "shusha.png"},
-  { name: "Stadia", cat: "dev", img: "stadia.png"},
-  { name: "Biznesgrib", cat: "dev,design", img: "biznesgrib.png", link: "https://uwwwaga.github.io/biznesgrib/" },
-  { name: "Apollon Group", cat: "dev,design", img: "apollongroup.png", link: "https://apollongroup.shop" },
-  { name: "Coca", cat: "dev", img: "coca.png", link: "https://uwwwaga.github.io/Coca-1/" },
-  { name: "Wake&Bake", cat: "dev", img: "wakebake.png", link: "https://uwwwaga.github.io/Wake-Bake/" },
-  { name: "Car Musc", cat: "dev", img: "carmusc.png", link: "https://uwwwaga.github.io/Car-musc/" },
-  { name: "Agrofrost", cat: "dev", img: "agrofrost.png", link: "https://agrofrost.pro" },
-  { name: "MooniРейтинг", cat: "dev,design", img: "mooni.png", link: "https://uwwwaga.github.io/Mooniverse/" },
-  { name: "Lumina Coffee", cat: "dev,design", img: "Lumina-Coffee.png", link: "https://uwwwaga.github.io/Lumina-Coffee/" },
-  { name: "Lartums", cat: "dev", img: "lartums.png", link: "https://lartums.ru" },
-  { name: "Lapki Vet", cat: "design", img: "Lapki Vet.png", link: "https://www.figma.com/proto/MWz2rb2hVxLJxRGO2J552N/Lapki" },
-  { name: "ParmaSystems", cat: "dev,design", img: "parmasystems.png", link: "https://uwwwaga.github.io/ParmaSystems/" },
-  { name: "Aura", cat: "dev,design", img: "aura.png", link: "https://uwwwaga.github.io/Aura/" },
-  { name: "PhotographerKazan", cat: "dev,design", img: "photographerkazan.png", link: "https://uwwwaga.github.io/PhotographerKazan/" },
+  { name: "Project 1", cat: "dev", img: "project-1(1)-converted.webp" },
+  { name: "Project 2", cat: "dev", img: "project-2(1)-converted.webp" },
+  { name: "Project 3", cat: "design", img: "project-3(1)-converted.webp" },
+  { name: "Project 4", cat: "design", img: "project-4(1)-converted.webp" },
+  { name: "Project 5", cat: "dev", img: "project-5(1)-converted.webp" },
+  { name: "Metaspark", cat: "dev", img: "project-6(1)-converted.webp" },
+  { name: "Project 7", cat: "design", img: "project-7(1)-converted.webp" },
+  { name: "Project 8", cat: "dev", img: "project-8(1)-converted.webp" },
+  { name: "Project 9", cat: "design", img: "project-9(1)-converted.webp" },
+  { name: "Iterumsi", cat: "dev,design", img: "iterum-converted.webp"},
+  { name: "Shusha", cat: "dev,design", img: "shusha-converted.webp"},
+  { name: "Stadia", cat: "dev", img: "stadia-converted.webp"},
+  { name: "Biznesgrib", cat: "dev,design", img: "biznesgrib-converted.webp", link: "https://uwwwaga.github.io/biznesgrib/" },
+  { name: "Apollon Group", cat: "dev,design", img: "apollongroup-converted.webp", link: "https://apollongroup.shop" },
+  { name: "Coca", cat: "dev", img: "coca-converted.webp", link: "https://uwwwaga.github.io/Coca-1/" },
+  { name: "Wake&Bake", cat: "dev", img: "wakebake-converted.webp", link: "https://uwwwaga.github.io/Wake-Bake/" },
+  { name: "Car Musc", cat: "dev", img: "carmusc-converted.webp", link: "https://uwwwaga.github.io/Car-musc/" },
+  { name: "Agrofrost", cat: "dev", img: "agrofrost-converted.webp", link: "https://agrofrost.pro" },
+  { name: "MooniРейтинг", cat: "dev,design", img: "mooni-converted.webp", link: "https://uwwwaga.github.io/Mooniverse/" },
+  { name: "Lumina Coffee", cat: "dev,design", img: "Lumina-Coffee-converted.webp", link: "https://uwwwaga.github.io/Lumina-Coffee/" },
+  { name: "Lartums", cat: "dev", img: "lartums-converted.webp", link: "https://lartums.ru" },
+  { name: "Lapki Vet", cat: "design", img: "Lapki Vet-converted.webp", link: "https://www.figma.com/proto/MWz2rb2hVxLJxRGO2J552N/Lapki" },
+  { name: "ParmaSystems", cat: "dev,design", img: "parmasystems-converted.webp", link: "https://uwwwaga.github.io/ParmaSystems/" },
+  { name: "Aura", cat: "dev,design", img: "aura-converted.webp", link: "https://uwwwaga.github.io/Aura/" },
+  { name: "PhotographerKazan", cat: "dev,design", img: "photographerkazan-converted.webp", link: "https://uwwwaga.github.io/PhotographerKazan/" },
 ];
 const catLabel = c => c.includes(',') ? 'Разработка · Дизайн' : (c === 'dev' ? 'Веб разработка' : 'Веб дизайн');
 const folioGrid = document.getElementById('folioGrid');
@@ -209,7 +209,7 @@ function renderFolio(filter) {
     if (p.link) { el.href = p.link; el.target = '_blank'; }
     if (p.img) {
       el.innerHTML = `
-          <img src="${IMG}${p.img}" alt="${p.name}">
+          <img src="${IMG}${p.img}" alt="${p.name}" loading="lazy" decoding="async">
           <div class="folio-overlay"><span>${catLabel(p.cat)}</span><h4>${p.name}</h4></div>`;
     } else {
       el.innerHTML = `
