@@ -51,6 +51,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   overflow-x: clip;
   width: 100%;
 }
@@ -63,6 +64,10 @@ body {
   width: 100%;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 .page {
