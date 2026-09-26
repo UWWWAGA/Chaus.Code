@@ -222,7 +222,7 @@ const folio = [
   { name: "Hyperspace", cat: "dev,design", img: "hyperspace-converted.webp", link: "https://uwwwaga.github.io/Hyperspace/" },
 ];
 
-const catLabel = c => c.includes(',') ? 'Разработка · Дизайн' : (c === 'dev' ? 'Веб разработка' : 'Веб дизайн');
+const catLabel = c => c.includes(',') ? 'Разработка · Дизайн' : (c === 'dev' ? 'Веб-разработка' : 'Веб-дизайн');
 const folioGrid = document.getElementById('folioGrid');
 const folioMoreWrap = document.getElementById('folioMoreWrap');
 const folioMoreBtn = document.getElementById('folioMoreBtn');
