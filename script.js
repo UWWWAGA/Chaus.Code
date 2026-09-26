@@ -300,17 +300,27 @@ const openContactBtn = document.getElementById('openContactModal');
 const closeContactBtn = document.getElementById('closeContactModal');
 
 let scrollY = 0;
+let scrollPosition = 0;
 
 function openContactModal() {
   if (!contactOverlay) return;
+  
+  scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  
+  document.documentElement.style.setProperty('--scroll-y', `-${scrollPosition}px`);
+  
+  document.documentElement.classList.add('modal-open');
   contactOverlay.classList.add('active');
-  document.body.classList.add('modal-open');
 }
 
 function closeContactModal() {
   if (!contactOverlay) return;
+  
   contactOverlay.classList.remove('active');
-  document.body.classList.remove('modal-open');
+  document.documentElement.classList.remove('modal-open');
+  
+  window.scrollTo(0, scrollPosition);
+  document.documentElement.style.removeProperty('--scroll-y');
 }
 
 if (openContactBtn) openContactBtn.addEventListener('click', openContactModal);
