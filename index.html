@@ -37,6 +37,7 @@
     href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./calc.css">
 
   <script type="application/ld+json">
   {
@@ -79,6 +80,7 @@
           <a href="#timeline">Резюме</a>
           <a href="#reviews">Отзывы</a>
           <a href="#portfolio">Портфолио</a>
+          <a href="#calculator">Калькулятор</a>
         </nav>
 
         <div class="header-actions">
@@ -107,6 +109,7 @@
       <a href="#timeline">Резюме</a>
       <a href="#reviews">Отзывы</a>
       <a href="#portfolio">Портфолио</a>
+      <a href="#calculator">Калькулятор</a>
       <a href="#contact" class="nav-cta mobile-cta">Связаться</a>
     </div>
 
@@ -305,6 +308,83 @@
         </div>
       </section>
 
+      <section id="calculator">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="eyebrow">Калькулятор</span>
+            <h2>Рассчитайте примерную стоимость</h2>
+          </div>
+
+          <div class="calc-card reveal">
+            <div class="calc-options">
+
+              <div class="calc-group">
+                <label class="calc-label">Формат расчета:</label>
+                <div class="calc-switcher">
+                  <button type="button" class="calc-tab active" data-mode="hours">По часам</button>
+                  <button type="button" class="calc-tab" data-mode="blocks">По блокам</button>
+                </div>
+              </div>
+
+              <div class="calc-group" id="groupHours">
+                <label class="calc-label" for="calcHours">Оценка времени (часы):</label>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calcHours" value="5" min="1" max="100">
+                  <div class="calc-spin-btns">
+                    <button type="button" class="spin-btn" onclick="stepUp('calcHours')">▲</button>
+                    <button type="button" class="spin-btn" onclick="stepDown('calcHours')">▼</button>
+                  </div>
+                  <span class="calc-unit">ч.</span>
+                </div>
+                <p class="calc-hint">1 час = 1 250 ₽</p>
+              </div>
+
+              <div class="calc-group hidden" id="groupBlocks">
+                <label class="calc-label" for="calcBlocks">Количество блоков:</label>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calcBlocks" value="5" min="1" max="100">
+                  <div class="calc-spin-btns">
+                    <button type="button" class="spin-btn" onclick="stepUp('calcBlocks')">▲</button>
+                    <button type="button" class="spin-btn" onclick="stepDown('calcBlocks')">▼</button>
+                  </div>
+                  <span class="calc-unit">шт.</span>
+                </div>
+                <p class="calc-hint">1 блок = от 250 до 1 000 ₽</p>
+              </div>
+
+              <div class="calc-group">
+                <label class="calc-label">Дополнительные опции:</label>
+                <div class="calc-checkboxes">
+                  <label class="calc-checkbox">
+                    <input type="checkbox" id="optSeo">
+                    <span class="custom-check"></span>
+                    <span>Базовая SEO-настройка (+2 500 ₽)</span>
+                  </label>
+                  <label class="calc-checkbox">
+                    <input type="checkbox" id="optWp">
+                    <span class="custom-check"></span>
+                    <span>Подключение CMS WordPress + натяжка верстки (+2 000 ₽ базово + 250–700 ₽/блок)</span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="calc-result-box">
+              <span class="calc-result-title">Стоимость вашего проекта будет примерно:</span>
+              <div class="calc-price-main" id="calcPriceAvg">0 ₽</div>
+              <div class="calc-price-range">
+                <span>Мин: <strong id="calcPriceMin">0 ₽</strong></span>
+                <span class="calc-range-divider">•</span>
+                <span>Макс: <strong id="calcPriceMax">0 ₽</strong></span>
+              </div>
+              <p class="calc-note">* Итоговая стоимость уточняется после обсуждения проекта и технического задания.</p>
+              <a href="javascript:void(0)" onclick="openContactModal()" class="btn-primary calc-cta">Обсудить проект</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="contact">
         <div class="blob-field">
           <div class="blob-glow c1"></div>
@@ -386,6 +466,7 @@
   </div>
 
   <script src="./script.js" defer></script>
+  <script src="./calc.js" defer></script>
 
 </body>
 
