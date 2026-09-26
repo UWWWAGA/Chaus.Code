@@ -193,33 +193,33 @@ if (reviewsTrack && reviewsDots) {
 }
 
 const folio = [
-  { name: "Project 1", cat: "dev", img: "project-1(1)-converted.webp" },
-  { name: "Project 2", cat: "dev", img: "project-2(1)-converted.webp" },
-  { name: "Project 3", cat: "design", img: "project-3(1)-converted.webp" },
-  { name: "Project 4", cat: "design", img: "project-4(1)-converted.webp" },
-  { name: "Project 5", cat: "dev", img: "project-5(1)-converted.webp" },
-  { name: "Metaspark", cat: "dev", img: "project-6(1)-converted.webp" },
-  { name: "Project 7", cat: "design", img: "project-7(1)-converted.webp" },
-  { name: "Project 8", cat: "dev", img: "project-8(1)-converted.webp" },
-  { name: "Project 9", cat: "design", img: "project-9(1)-converted.webp" },
-  { name: "Iterumsi", cat: "dev,design", img: "iterum-converted.webp"},
-  { name: "Shusha", cat: "dev,design", img: "shusha-converted.webp"},
-  { name: "Stadia", cat: "dev", img: "stadia-converted.webp"},
+  { name: "Lartums", cat: "dev", img: "lartums-converted.webp", link: "https://lartums.ru" },
+  { name: "Lapki Vet", cat: "design", img: "Lapki Vet-converted.webp", link: "https://www.figma.com/proto/MWz2rb2hVxLJxRGO2J552N/Lapki" },
+  { name: "ParmaSystems", cat: "dev,design", img: "parmasystems-converted.webp", link: "https://uwwwaga.github.io/ParmaSystems/" },
+  { name: "Aura", cat: "dev,design", img: "aura-converted.webp", link: "https://uwwwaga.github.io/Aura/" },
+  { name: "MooniРейтинг", cat: "dev,design", img: "mooni-converted.webp", link: "https://uwwwaga.github.io/Mooniverse/" },
+  { name: "PhotographerKazan", cat: "dev,design", img: "photographerkazan-converted.webp", link: "https://uwwwaga.github.io/PhotographerKazan/" },
+  { name: "Dimension", cat: "dev,design", img: "dimension-converted.webp", link: "https://uwwwaga.github.io/Dimension/" },
+  { name: "Hyperspace", cat: "dev,design", img: "hyperspace-converted.webp", link: "https://uwwwaga.github.io/Hyperspace/" },
   { name: "Biznesgrib", cat: "dev,design", img: "biznesgrib-converted.webp", link: "https://uwwwaga.github.io/biznesgrib/" },
   { name: "Apollon Group", cat: "dev,design", img: "apollongroup-converted.webp", link: "https://apollongroup.shop" },
   { name: "Coca", cat: "dev", img: "coca-converted.webp", link: "https://uwwwaga.github.io/Coca-1/" },
   { name: "Wake&Bake", cat: "dev", img: "wakebake-converted.webp", link: "https://uwwwaga.github.io/Wake-Bake/" },
   { name: "Car Musc", cat: "dev", img: "carmusc-converted.webp", link: "https://uwwwaga.github.io/Car-musc/" },
+  { name: "Project 1", nda: true, cat: "dev", img: "project-1(1)-converted.webp" },
+  { name: "Project 2", nda: true, cat: "dev", img: "project-2(1)-converted.webp" },
+  { name: "Project 3", nda: true, cat: "design", img: "project-3(1)-converted.webp" },
+  { name: "Project 4", nda: true, cat: "design", img: "project-4(1)-converted.webp" },
+  { name: "Project 5", nda: true, cat: "dev", img: "project-5(1)-converted.webp" },
+  { name: "Metaspark", nda: true, cat: "dev", img: "project-6(1)-converted.webp" },
+  { name: "Project 7", nda: true, cat: "design", img: "project-7(1)-converted.webp" },
+  { name: "Project 8", nda: true, cat: "dev", img: "project-8(1)-converted.webp" },
+  { name: "Project 9", nda: true, cat: "design", img: "project-9(1)-converted.webp" },
+  { name: "Iterumsi", cat: "dev,design", img: "iterum-converted.webp"},
+  { name: "Shusha", cat: "dev,design", img: "shusha-converted.webp"},
+  { name: "Stadia", nda: true, cat: "dev", img: "stadia-converted.webp"},
   { name: "Agrofrost", cat: "dev", img: "agrofrost-converted.webp", link: "https://agrofrost.pro" },
-  { name: "MooniРейтинг", cat: "dev,design", img: "mooni-converted.webp", link: "https://uwwwaga.github.io/Mooniverse/" },
   { name: "Lumina Coffee", cat: "dev,design", img: "Lumina-Coffee-converted.webp", link: "https://uwwwaga.github.io/Lumina-Coffee/" },
-  { name: "Lartums", cat: "dev", img: "lartums-converted.webp", link: "https://lartums.ru" },
-  { name: "Lapki Vet", cat: "design", img: "Lapki Vet-converted.webp", link: "https://www.figma.com/proto/MWz2rb2hVxLJxRGO2J552N/Lapki" },
-  { name: "ParmaSystems", cat: "dev,design", img: "parmasystems-converted.webp", link: "https://uwwwaga.github.io/ParmaSystems/" },
-  { name: "Aura", cat: "dev,design", img: "aura-converted.webp", link: "https://uwwwaga.github.io/Aura/" },
-  { name: "PhotographerKazan", cat: "dev,design", img: "photographerkazan-converted.webp", link: "https://uwwwaga.github.io/PhotographerKazan/" },
-  { name: "Dimension", cat: "dev,design", img: "dimension-converted.webp", link: "https://uwwwaga.github.io/Dimension/" },
-  { name: "Hyperspace", cat: "dev,design", img: "hyperspace-converted.webp", link: "https://uwwwaga.github.io/Hyperspace/" },
 ];
 
 const catLabel = c => c.includes(',') ? 'Разработка · Дизайн' : (c === 'dev' ? 'Веб-разработка' : 'Веб-дизайн');
@@ -240,12 +240,17 @@ function renderFolio(filter) {
     const el = document.createElement(p.link ? 'a' : 'div');
     el.className = 'folio-card reveal in';
     if (p.link) { el.href = p.link; el.target = '_blank'; }
+    
+    const ndaBadge = p.nda ? `<span class="folio-nda-badge">NDA</span>` : '';
+
     if (p.img) {
       el.innerHTML = `
+          ${ndaBadge}
           <img src="${IMG}${p.img}" alt="${p.name}" loading="lazy" decoding="async">
           <div class="folio-overlay"><span>${catLabel(p.cat)}</span><h4>${p.name}</h4></div>`;
     } else {
       el.innerHTML = `
+          ${ndaBadge}
           <div class="folio-noimg"><span>${catLabel(p.cat)}</span><h4>${p.name}</h4></div>`;
     }
     folioGrid.appendChild(el);
