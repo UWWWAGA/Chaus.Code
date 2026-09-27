@@ -58,13 +58,11 @@
       max = blocks * 1000;
     }
 
-    // Доп опция: SEO
     if (optSeo && optSeo.checked) {
       min += 2500;
       max += 2500;
     }
 
-    // Доп опция: WordPress + натяжка верстки
     if (optWp && optWp.checked) {
       const baseWp = 2000;
       let blocksCount = 1;
@@ -87,9 +85,8 @@
   }
 
   calculate();
-})(); // Инициализация функции калькулятора
+})();
 
-// Функции для кнопок стрелок
 function stepUp(id) {
   const el = document.getElementById(id);
   if (el) {
@@ -105,3 +102,25 @@ function stepDown(id) {
     el.dispatchEvent(new Event('input', { bubbles: true }));
   }
 }
+
+function sendCalcToTelegram() {
+  const mode = document.querySelector('.calc-tab.active')?.dataset.mode === 'hours' ? 'По часам' : 'По блокам';
+  const hours = document.getElementById('calcHours')?.value || 0;
+  const blocks = document.getElementById('calcBlocks')?.value || 0;
+  const optSeo = document.getElementById('optSeo')?.checked ? 'Да' : 'Нет';
+  const optWp = document.getElementById('optWp')?.checked ? 'Да' : 'Нет';
+  const priceAvg = document.getElementById('calcPriceAvg')?.innerText || '0 ₽';
+
+  let detail = mode === 'По часам' ? `${hours} ч.` : `${blocks} блоков`;
+
+  const text = `Привет! Хочу обсудить проект.\n\n` +
+               `📊 Расчет из калькулятора:\n` +
+               `• Формат: ${mode} (${detail})\n` +
+               `• Базовая SEO-настройка: ${optSeo}\n` +
+               `• Подключение WordPress: ${optWp}\n` +
+               `• Примерная стоимость: ${priceAvg}`;
+
+  const tgUrl = `https://t.me/buwaga?text=${encodeURIComponent(text)}`;
+  window.open(tgUrl, '_blank');
+}
+
