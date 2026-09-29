@@ -193,19 +193,19 @@ if (reviewsTrack && reviewsDots) {
 }
 
 const folio = [
-  { name: "Lartums", cat: "dev", img: "lartums-converted.webp", link: "https://lartums.ru" },
+  { name: "Lartums", cat: "dev", img: "Lartums.webp", link: "https://lartums.ru" },
   { name: "Lapki Vet", cat: "design", img: "Lapki Vet-converted.webp", link: "https://www.figma.com/proto/MWz2rb2hVxLJxRGO2J552N/Lapki" },
-  { name: "ParmaSystems", cat: "dev,design", img: "parmasystems-converted.webp", link: "https://uwwwaga.github.io/ParmaSystems/" },
-  { name: "Aura", cat: "dev,design", img: "aura-converted.webp", link: "https://uwwwaga.github.io/Aura/" },
-  { name: "MooniРейтинг", cat: "dev,design", img: "mooni-converted.webp", link: "https://uwwwaga.github.io/Mooniverse/" },
-  { name: "PhotographerKazan", cat: "dev,design", img: "photographerkazan-converted.webp", link: "https://uwwwaga.github.io/PhotographerKazan/" },
-  { name: "Dimension", cat: "dev,design", img: "dimension-converted.webp", link: "https://uwwwaga.github.io/Dimension/" },
-  { name: "Hyperspace", cat: "dev,design", img: "hyperspace-converted.webp", link: "https://uwwwaga.github.io/Hyperspace/" },
-  { name: "Biznesgrib", cat: "dev,design", img: "biznesgrib-converted.webp", link: "https://uwwwaga.github.io/biznesgrib/" },
+  { name: "ParmaSystems", cat: "dev,design", img: "ParmaSystems.webp", link: "https://uwwwaga.github.io/ParmaSystems/" },
+  { name: "Aura", cat: "dev,design", img: "Aura.webp", link: "https://uwwwaga.github.io/Aura/" },
+  { name: "MooniРейтинг", cat: "dev,design", img: "Mooni.webp", link: "https://uwwwaga.github.io/Mooniverse/" },
+  { name: "PhotographerKazan", cat: "dev,design", img: "PhotographerKazan.webp", link: "https://uwwwaga.github.io/PhotographerKazan/" },
+  { name: "Dimension", cat: "dev,design", img: "Dimension.webp", link: "https://uwwwaga.github.io/Dimension/" },
+  { name: "Hyperspace", cat: "dev,design", img: "Hyperspace.webp", link: "https://uwwwaga.github.io/Hyperspace/" },
+  { name: "Biznesgrib", cat: "dev,design", img: "BiznesGrib.webp", link: "https://uwwwaga.github.io/biznesgrib/" },
   { name: "Apollon Group", cat: "dev,design", img: "apollongroup-converted.webp", link: "https://apollongroup.shop" },
-  { name: "Coca", cat: "dev", img: "coca-converted.webp", link: "https://uwwwaga.github.io/Coca-1/" },
-  { name: "Wake&Bake", cat: "dev", img: "wakebake-converted.webp", link: "https://uwwwaga.github.io/Wake-Bake/" },
-  { name: "Car Musc", cat: "dev", img: "carmusc-converted.webp", link: "https://uwwwaga.github.io/Car-musc/" },
+  { name: "Coca", cat: "dev", img: "Coca.webp", link: "https://uwwwaga.github.io/Coca-1/" },
+  { name: "Wake&Bake", cat: "dev", img: "WakeBake.webp", link: "https://uwwwaga.github.io/Wake-Bake/" },
+  { name: "Car Musc", cat: "dev", img: "CarMusc.webp", link: "https://uwwwaga.github.io/Car-musc/" },
   { name: "Project 1", nda: true, cat: "dev", img: "project-1(1)-converted.webp" },
   { name: "Project 2", nda: true, cat: "dev", img: "project-2(1)-converted.webp" },
   { name: "Project 3", nda: true, cat: "design", img: "project-3(1)-converted.webp" },
@@ -218,8 +218,8 @@ const folio = [
   { name: "Iterumsi", cat: "dev,design", img: "iterum-converted.webp"},
   { name: "Shusha", cat: "dev,design", img: "shusha-converted.webp"},
   { name: "Stadia", nda: true, cat: "dev", img: "stadia-converted.webp"},
-  { name: "Agrofrost", cat: "dev", img: "agrofrost-converted.webp", link: "https://agrofrost.pro" },
-  { name: "Lumina Coffee", cat: "dev,design", img: "Lumina-Coffee-converted.webp", link: "https://uwwwaga.github.io/Lumina-Coffee/" },
+  { name: "Agrofrost", cat: "dev", img: "Agrofrost.webp", link: "https://agrofrost.pro" },
+  { name: "Lumina Coffee", cat: "dev,design", img: "LuminaCoffee.webp", link: "https://uwwwaga.github.io/Lumina-Coffee/" },
 ];
 
 const catLabel = c => c.includes(',') ? 'Разработка · Дизайн' : (c === 'dev' ? 'Веб-разработка' : 'Веб-дизайн');
